@@ -1,6 +1,6 @@
 {
   "name": "jspdf-barcode",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "barcode generator plugin for jspdf",
   "main": "index.js",
   "types": "types.d.ts",
