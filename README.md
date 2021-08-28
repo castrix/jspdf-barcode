@@ -27,4 +27,4 @@ Currently only support Code 128 Barcode
 | arguments    | type   | accepted value                                                                                             |
 |--------------|--------|------------------------------------------------------------------------------------------------------------|
 | barcodeValue | string | alphanumeric                                                                                               |   |   |
-| options      | object | `fontSize` number `textColor` string `x`: number // x coordinate of pdf `y`: number // y coordinate of pdf |
+| options      | object | `fontSize` number, `textColor` string,`x`: number // x coordinate of pdf, `y`: number // y coordinate of pdf |
