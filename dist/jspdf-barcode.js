@@ -13,12 +13,13 @@ const generateBarcode = (
   options = { fontSize: 12, textColor: "#000000", x: 0, y: 10 },
   doc = jsPDF
 ) => {
+  const barcodeEncoder = new Code128Generator();
   doc.addFont("code128-normal.ttf", "code128", "normal");
   doc.setFont("code128", "normal");
   doc.setTextColor(options.textColor || "#000000");
   doc.setFontSize(options.fontSize || 112);
   doc.text(
-    `${Code128Generator.encode(barcodeValue)}`, // encode the barcode value
+    `${barcodeEncoder.encode(barcodeValue)}`, // encode the barcode value
     Number(options.x),
     Number(options.y)
   );
