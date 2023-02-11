@@ -1,8 +1,8 @@
 {
   "name": "jspdf-barcode",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "barcode generator plugin for jspdf",
-  "main":"dist/jspdf-barcode.js",
+  "main": "dist/jspdf-barcode.js",
   "types": "types.d.ts",
   "scripts": {
     "build": "webpack --mode production"
@@ -19,7 +19,7 @@
     "pdf"
   ],
   "author": "ihsan fajar ramadhan",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "dependencies": {
     "code-128-encoder": "^3.1.1",
     "jspdf": "^2.3.1"
