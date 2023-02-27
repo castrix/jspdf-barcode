@@ -7,10 +7,11 @@ const callAddFont = function () {
   this.addFileToVFS("code128-normal.ttf", font);
   this.addFont("code128-normal.ttf", "code128", "normal");
 };
+const defaultTextOptions = { align: "left", baseline: "alphabetic", angle: 0, rotationDirection: 1, charSpace: 0, lineHeightFactor: 1.5, maxWidth: 0, renderingMode: "fill" }
 jsPDF.API.events.push(["addFonts", callAddFont]);
 const generateBarcode = (
   barcodeValue,
-  options = { fontSize: 12, textColor: "#000000", x: 0, y: 10 },
+  options = { fontSize: 12, textColor: "#000000", x: 0, y: 10, textOptions: defaultTextOptions  },
   doc = jsPDF
 ) => {
   const barcodeEncoder = new Code128Generator();
@@ -21,14 +22,14 @@ const generateBarcode = (
   doc.text(
     `${barcodeEncoder.encode(barcodeValue)}`, // encode the barcode value
     Number(options.x),
-    Number(options.y)
+    Number(options.y), options.textOptions
   );
   return doc;
 };
 
 jsPDF.API.barcode = function (
   barcodeValue,
-  options = { fontSize: 12, textColor: "#000000", x: 0, y: 10 }
+  options = { fontSize: 12, textColor: "#000000", x: 0, y: 10, textOptions: defaultTextOptions }
 ) {
   return generateBarcode(barcodeValue, options, this);
 };

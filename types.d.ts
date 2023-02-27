@@ -1,5 +1,7 @@
 import { jsPDF } from 'jspdf'
 
+interface textOptions { align?: string, baseline?: string, angle?: number, rotationDirection?: number, charSpace?: number, lineHeightFactor?: number, maxWidth?: number, renderingMode?: string }
+
 declare module 'jspdf-barcode' {
   /**
    * Generate Barcode for jsPdf
@@ -7,7 +9,7 @@ declare module 'jspdf-barcode' {
    * @param options Optional options object.
    * @return A promise resolving to the jsPDF document.
    */
-  export function generateBarcode(barcodeValue: String, options: { fontSize: number; textColor: string; x: number; y: number; }): Promise<jsPDF>
+  export function generateBarcode(barcodeValue: String, options: { fontSize: number; textColor: string; x: number; y: number; textOptions?: textOptions }): Promise<jsPDF>
 }
 
 declare module 'jspdf' {
@@ -18,7 +20,7 @@ declare module 'jspdf' {
    * @param options Optional options object.
    * @return A promise resolving to the jsPDF document.
    */
-    barcode(barcodeValue: String, options: { fontSize: number; textColor: string; x: number; y: number; }): Promise<jsPDF>
+    barcode(barcodeValue: String, options: { fontSize: number; textColor: string; x: number; y: number; textOptions?: textOptions }): Promise<jsPDF>
   }
 
   interface jsPDFAPI {
@@ -28,6 +30,6 @@ declare module 'jspdf' {
    * @param options Optional options object.
    * @return A promise resolving to the jsPDF document.
    */
-     barcode(barcodeValue: String, options: { fontSize: number; textColor: string; x: number; y: number; }): Promise<jsPDF>
+     barcode(barcodeValue: String, options: { fontSize: number; textColor: string; x: number; y: number; textOptions?: textOptions }): Promise<jsPDF>
   }
 }
