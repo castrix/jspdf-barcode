@@ -28,4 +28,4 @@ Currently only support Code 128 Barcode
 | arguments    | type   | accepted value                                                                                             |
 |--------------|--------|------------------------------------------------------------------------------------------------------------|
 | barcodeValue | string | alphanumeric                                                                                               |   |   |
-| options      | object | `fontSize` number, &nbsp; `textColor` string, &nbsp; `x`: number // x coordinate of pdf, &nbsp; `y`: number // y coordinate of pdf, &nbsp; [textOptions(optional)](https://artskydj.github.io/jsPDF/docs/jsPDF.html#text) |
+| options      | object | `fontSize` number, <br/> `textColor` string, <br/> `x`: number // x coordinate of pdf, <br/> `y`: number // y coordinate of pdf, <br/> [textOptions(optional)](https://artskydj.github.io/jsPDF/docs/jsPDF.html#text) |
