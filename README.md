@@ -16,7 +16,7 @@ doc.barcode("barcodeValue", {
     textColor: "#000000",
     x: 5.4,
     y: 25.5,
-    // optional text options
+    { align: "center" } // optional text options
   })
 ```
 
