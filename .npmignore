@@ -2,3 +2,4 @@
 weback.config.js
 /src
 .github
+package-lock.json
