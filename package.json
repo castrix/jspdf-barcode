@@ -11,7 +11,7 @@
   "workspaces": {"packages": ["example/*"]},
   "scripts": {
     "build": "webpack --mode production",
-    "build-example": "cd example && npm run build"
+    "build-example": "cd example && npm ci && npm run build"
   },
   "repository": {
     "type": "git",
