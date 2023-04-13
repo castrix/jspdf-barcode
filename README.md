@@ -1,3 +1,6 @@
+# Demo
+[https://castrix.github.io/jspdf-barcode](https://castrix.github.io/jspdf-barcode)
+
 # Installation
 
 ```
