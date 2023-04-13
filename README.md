@@ -1,6 +1,8 @@
 # Demo
 [https://castrix.github.io/jspdf-barcode](https://castrix.github.io/jspdf-barcode)
 
+[Code](https://github.com/castrix/jspdf-barcode/tree/main/example)
+
 # Installation
 
 ```
@@ -19,8 +21,9 @@ doc.barcode("barcodeValue", {
     textColor: "#000000",
     x: 5.4,
     y: 25.5,
-    { align: "center" } // optional text options
+    textOptions: { align: "center" } // optional text options
   })
+doc.setFont(""); // reset font to your font
 ```
 
 ## Support
