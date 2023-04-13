@@ -1,6 +1,6 @@
 {
   "name": "jspdf-barcode",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "barcode generator plugin for jspdf",
   "main": "dist/jspdf-barcode.js",
   "types": "types.d.ts",
@@ -12,9 +12,10 @@
     "build": "webpack --mode production",
     "build-example": "npm run build --workspace=example"
   },
+  "homepage": "https://github.com/castrix/jspdf-barcode#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/castrix/jspdf-barcode/blob/main/LICENSE"
+    "url": "https://github.com/castrix/jspdf-barcode"
   },
   "keywords": [
     "jspdf",
