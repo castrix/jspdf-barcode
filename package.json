@@ -4,6 +4,10 @@
   "description": "barcode generator plugin for jspdf",
   "main": "dist/jspdf-barcode.js",
   "types": "types.d.ts",
+  "exports": {
+    "import": "./dist/jspdf-barcode.js",
+    "require": "./dist/jspdf-barcode.cjs"
+  },
   "scripts": {
     "build": "webpack --mode production"
   },
