@@ -14,7 +14,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: "18.x"
-      - run: cd example && npm ci --legacy-peer-deps && npm run build
+      - run: npm ci
+      - run: npm run build-example
       - name: Deploy
         uses: crazy-max/ghaction-github-pages@v1
         with:

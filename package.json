@@ -8,8 +8,10 @@
     "import": "./dist/jspdf-barcode.js",
     "require": "./dist/jspdf-barcode.cjs"
   },
+  "workspaces": {"packages": ["example/*"]},
   "scripts": {
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "build-example": "cd example && npm run build"
   },
   "repository": {
     "type": "git",
