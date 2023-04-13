@@ -1,8 +1,19 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
+import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   base: "/jspdf-barcode/",
   plugins: [react()],
+  build: {
+    minify: true,
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve("./src"),
+      'jspdf': path.resolve(__dirname, "../node_modules/jspdf"),
+      'jspdf-barcode': path.resolve(__dirname, ".."),
+    },
+  },
 })

@@ -1,6 +1,6 @@
 {
   "name": "jspdf-barcode",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "barcode generator plugin for jspdf",
   "main": "dist/jspdf-barcode.js",
   "types": "types.d.ts",
@@ -8,10 +8,9 @@
     "import": "./dist/jspdf-barcode.js",
     "require": "./dist/jspdf-barcode.cjs"
   },
-  "workspaces": {"packages": ["example/*"]},
   "scripts": {
     "build": "webpack --mode production",
-    "build-example": "cd example && npm ci && npm run build"
+    "build-example": "npm run build --workspace=example"
   },
   "repository": {
     "type": "git",
@@ -28,7 +27,7 @@
   "license": "MIT",
   "dependencies": {
     "code-128-encoder": "^3.1.1",
-    "jspdf": "^2.3.1"
+    "jspdf": "^2.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
@@ -40,5 +39,8 @@
     "typescript": "^3.9.6",
     "webpack": "^5.51.1",
     "webpack-cli": "^4.8.0"
-  }
+  },
+  "workspaces": [
+    "example"
+  ]
 }

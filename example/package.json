@@ -9,7 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "jspdf": "^2.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -19,5 +18,17 @@
     "@vitejs/plugin-react-swc": "^3.0.0",
     "typescript": "^4.9.3",
     "vite": "^4.2.0"
-  }
+  },
+  "description": "## How to",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/castrix/jspdf-barcode.git"
+  },
+  "author": "Ihsan Fajar Ramadhan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/castrix/jspdf-barcode/issues"
+  },
+  "homepage": "https://github.com/castrix/jspdf-barcode#readme"
 }
