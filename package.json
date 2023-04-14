@@ -1,6 +1,6 @@
 {
   "name": "jspdf-barcode",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "barcode generator plugin for jspdf",
   "main": "dist/jspdf-barcode.js",
   "types": "types.d.ts",
@@ -10,8 +10,9 @@
   },
   "scripts": {
     "build": "webpack --mode production",
-    "build-example": "npm run build --workspace=example",
-    "run-example": "npm run dev --workspace=example"
+    "build-example": "npm run build --workspace=example && npm run build --workspace=example-server-side",
+    "example": "npm run dev --workspace=example",
+    "example-server-side": "npm run dev --workspace=example-server-side"
   },
   "homepage": "https://github.com/castrix/jspdf-barcode#readme",
   "repository": {
@@ -28,7 +29,6 @@
   "author": "ihsan fajar ramadhan",
   "license": "MIT",
   "dependencies": {
-    "code-128-encoder": "^3.1.1",
     "jspdf": "^2.5.1"
   },
   "devDependencies": {
@@ -37,12 +37,14 @@
     "@typescript-eslint/eslint-plugin": "^3.6.1",
     "@typescript-eslint/parser": "^3.6.1",
     "babel-loader": "^8.2.2",
+    "code-128-encoder": "^3.1.1",
     "ts-loader": "^8.0.0",
     "typescript": "^3.9.6",
     "webpack": "^5.51.1",
     "webpack-cli": "^4.8.0"
   },
   "workspaces": [
-    "example"
+    "example",
+    "example-server-side"
   ]
 }

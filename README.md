@@ -27,7 +27,7 @@ doc.barcode("barcodeValue", {
     y: 25.5,
     textOptions: { align: "center" } // optional text options
   })
-doc.setFont(""); // reset font to your font
+doc.setFont("Courier"); // reset font to your font
 ```
 
 ## Support

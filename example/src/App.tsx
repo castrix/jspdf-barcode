@@ -17,7 +17,7 @@ function App() {
       y: 25.5,
       textOptions: { align: "center" },
     });
-    doc.setFont("");
+    doc.setFont("Courier");
     doc.setFontSize(10);
     doc.text(barcodeVal, 100, 30, {align: "center"} );
     window.open(doc.output("bloburl"));
@@ -34,7 +34,8 @@ function App() {
         </a>
       </div>
       <h1>JSPDF-BARCODE EXAMPLE</h1>
-      <label htmlFor="barcodeval">Barcode value: </label><input id='barcodeval' value={barcodeVal} onChange={e => setBarcodeVal(e.target.value)} />
+      <label htmlFor="barcodeval">Barcode value: </label>
+      <input id='barcodeval' value={barcodeVal} onChange={e => setBarcodeVal(e.target.value)} />
       <div className="card">
         <button onClick={() => generateBarcode()}>
           Generate Barcode
@@ -43,9 +44,8 @@ function App() {
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <a href="https://www.npmjs.com/package/jspdf-barcode" target='_blank' style={{marginRight: "20px"}}>NPM</a>
+      <a href="https://github.com/castrix/jspdf-barcode" target='_blank'>GITHUB</a>
     </div>
   )
 }
