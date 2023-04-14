@@ -34,7 +34,7 @@ function App() {
         </a>
       </div>
       <h1>JSPDF-BARCODE EXAMPLE</h1>
-      <input value={barcodeVal} onChange={e => setBarcodeVal(e.target.value)} />
+      <label htmlFor="barcodeval">Barcode value: </label><input id='barcodeval' value={barcodeVal} onChange={e => setBarcodeVal(e.target.value)} />
       <div className="card">
         <button onClick={() => generateBarcode()}>
           Generate Barcode
