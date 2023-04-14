@@ -11,7 +11,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "build-example": "npm run build --workspace=example",
-    "run-example": "npm run build --workspace=example"
+    "run-example": "npm run dev --workspace=example"
   },
   "homepage": "https://github.com/castrix/jspdf-barcode#readme",
   "repository": {
