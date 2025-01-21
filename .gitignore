@@ -24,3 +24,5 @@ pnpm-debug.log*
 *.sw?
 node_modules
 node_modules
+
+code-128-font.d.ts

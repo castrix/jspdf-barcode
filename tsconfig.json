@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "composite": true,
     "baseUrl": ".",
     "target": "ESNext",
     "useDefineForClassFields": true,
@@ -15,9 +14,9 @@
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx",
+    "declaration": true,
+    "declarationDir": "./",
   },
-  "include": ["src", "dist", "example", "types.d.ts"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src/*"],
+  "exclude": ["**/*.test.ts", "*/code-128-font.ts"]
 }

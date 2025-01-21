@@ -1,20 +1,18 @@
 // example using cjs, you can use es6 as well here
 const { jsPDF } = require("jspdf")
-require("jspdf-barcode")
+const jsPdfBarcdoe = require("jspdf-barcode").default
 
 const generateBarcode = (barcodeVal: string | null) => {
   const value = barcodeVal || "jspdfbarcode"
   const doc = new jsPDF();
-  doc.barcode(value, {
+  jsPdfBarcdoe(doc, value, {
     fontSize: 23,
     textColor: "#000000",
     x: 100,
     y: 25.5,
     textOptions: { align: "center" },
   });
-  doc.setFont("Courier");
-  doc.setFontSize(10);
-  doc.text(value, 100, 30, { align: "center" });
+  doc.text(value, 100, 35, { align: "center" });
   return doc.output("arraybuffer");
 }
 

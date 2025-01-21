@@ -15,38 +15,38 @@ npm install jspdf jspdf-barcode --save
 
 ## Ussage
 
+require jspdf >= 2.0.0
+
 ### ES6
 
 ```
 import jsPDF from "jspdf"; // please use default import
-import "jspdf-barcode";
+import jspdfBarcode from "jspdf-barcode";
 
 const doc = new jsPDF()
-doc.barcode("barcodeValue", {
+jspdfBarcode(doc, "barcodeValue", {
     fontSize: 23,
     textColor: "#000000",
     x: 5.4,
     y: 25.5,
     textOptions: { align: "center" } // optional text options
   })
-doc.setFont("Courier"); // reset font to your font
 ```
 
 ### CJS
 
 ```
 const { jsPDF } = require("jspdf")
-require("jspdf-barcode")
+const jspdfBarcode = require("jspdf-barcode").default // use .default
 
 const doc = new jsPDF()
-doc.barcode("barcodeValue", {
+jspdfBarcode(doc, "barcodeValue", {
     fontSize: 23,
     textColor: "#000000",
     x: 5.4,
     y: 25.5,
     textOptions: { align: "center" } // optional text options
   })
-doc.setFont("Courier"); // reset font to your font
 ```
 
 ## Support
@@ -56,5 +56,6 @@ Currently only support Code 128 Barcode
 
 | arguments    | type   | accepted value                                                                                             |
 |--------------|--------|------------------------------------------------------------------------------------------------------------|
+| doc | string | jspdf instance |
 | barcodeValue | string | alphanumeric                                                                                               |   |   |
 | options      | object | `fontSize` number, <br/> `textColor` string, <br/> `x`: number // x coordinate of pdf, <br/> `y`: number // y coordinate of pdf, <br/> [textOptions(optional)](https://artskydj.github.io/jsPDF/docs/jsPDF.html#text) |

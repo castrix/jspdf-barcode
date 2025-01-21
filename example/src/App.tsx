@@ -3,23 +3,21 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import '@/App.css'
 import jsPDF from 'jspdf'
-import "jspdf-barcode"
+import jsPDFBarcode from "jspdf-barcode"
 
 
 function App() {
   const [barcodeVal, setBarcodeVal] = useState("jspdfbarcode123")
   const generateBarcode = () => {
     const doc = new jsPDF();
-    doc.barcode(barcodeVal, {
+    jsPDFBarcode(doc, barcodeVal, {
       fontSize: 23,
       textColor: "#000000",
       x: 100,
       y: 25.5,
       textOptions: { align: "center" },
     });
-    doc.setFont("Courier");
-    doc.setFontSize(10);
-    doc.text(barcodeVal, 100, 30, {align: "center"} );
+    doc.text(barcodeVal, 100, 35, {align: "center"} );
     window.open(doc.output("bloburl"));
   }
 

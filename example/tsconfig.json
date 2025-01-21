@@ -1,5 +1,4 @@
 {
-  "extends": "../tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
@@ -7,6 +6,7 @@
       "jspdf": ["../node-modules/jspdf"],
       "jspdf-barcode": [".."]
     },
+    "jsx": "react-jsx"
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
