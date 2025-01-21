@@ -1,6 +1,6 @@
 {
   "name": "jspdf-barcode",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "barcode generator plugin for jspdf",
   "main": "dist/jspdf-barcode.js",
   "types": "types.d.ts",
@@ -29,7 +29,7 @@
   "author": "ihsan fajar ramadhan",
   "license": "MIT",
   "peerDependencies": {
-    "jspdf": ">=2.0.0"
+    "jspdf": ">=1.4.0"
   },
   "dependencies": {
     "code-128-encoder": "^3.1.1"

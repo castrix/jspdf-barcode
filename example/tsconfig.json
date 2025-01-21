@@ -18,7 +18,6 @@
     "jsx": "react-jsx",
     "paths": {
       "@/*": ["src/*"],
-      "jspdf": ["../node-modules/jspdf"],
       "jspdf-barcode": [".."]
     },
   },

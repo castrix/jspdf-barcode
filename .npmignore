@@ -1,8 +1,10 @@
 .gitignore
-weback.config.js
+webpack.config.js
 /src
 .github
 package-lock.json
 /example
 /example-server-side
 code-128-font.d.ts
+tsconfig.node.json
+tsconfig.json

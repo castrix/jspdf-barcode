@@ -12,7 +12,6 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve("./src"),
-      'jspdf': path.resolve(__dirname, "../node_modules/jspdf"),
       'jspdf-barcode': path.resolve(__dirname, ".."),
     },
   },
