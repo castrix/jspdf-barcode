@@ -18,5 +18,5 @@
     "declarationDir": "./",
   },
   "include": ["src/*"],
-  "exclude": ["**/*.test.ts", "*/code-128-font.ts"]
+  "exclude": ["**/*.test.ts", "*/code-128-font.ts", "*/encode-code-128.ts"]
 }

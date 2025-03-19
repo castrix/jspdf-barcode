@@ -26,3 +26,4 @@ node_modules
 node_modules
 
 code-128-font.d.ts
+encode-code-128.d.ts

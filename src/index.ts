@@ -1,6 +1,6 @@
 ﻿import type { jsPDF, TextOptionsLight } from "jspdf";
 import font from "./code-128-font";
-import Code128Generator from "code-128-encoder";
+import { encodeCode128 } from "./encode-code-128";
 
 type Options = {
   fontSize: number;
@@ -8,6 +8,7 @@ type Options = {
   x: number;
   y: number;
   textOptions?: TextOptionsLight;
+  variant?: "A" | "B" | "C" | "AUTO";
 };
 
 const defaultTextOptions = {
@@ -39,13 +40,12 @@ const generateBarcode = (
   const prevTextColor = doc.getTextColor();
 
   doc.addFileToVFS("code128-normal.ttf", font);
-  const barcodeEncoder = new Code128Generator();
   doc.addFont("code128-normal.ttf", "code128", "normal");
   doc.setFont("code128", "normal");
   doc.setTextColor(options.textColor || "#000000");
   doc.setFontSize(options.fontSize || 112);
   doc.text(
-    `${barcodeEncoder.encode(barcodeValue)}`, // encode the barcode value
+    `${encodeCode128(barcodeValue, options.variant)}`, // encode the barcode value
     Number(options.x),
     Number(options.y),
     options.textOptions
