@@ -59,7 +59,10 @@ export const encodeCode128 = (text: string, variant: VARIANT = 'AUTO') => {
   if (effectiveVariant === 'C') {
       for (let i = 0; i < text.length; i += 2) {
           const pair = parseInt(text.slice(i, i + 2), 10);
-          barcodeString += String.fromCharCode(pair + ASCII_OFFSET);
+
+          const offset = pair < 95 ? ASCII_OFFSET : FONT_OFFSET;
+
+          barcodeString += String.fromCharCode(pair + offset);
       }
   } else {
       barcodeString += text;
