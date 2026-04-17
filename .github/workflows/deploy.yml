@@ -25,14 +25,16 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   npm-publish:
     name: npm-publish
-    if: startsWith(github.ref, 'refs/tags/v')
+    if: github.ref == 'refs/heads/main' && startsWith(github.event.head_commit.message, 'Release ')
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       id-token: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
@@ -45,13 +47,32 @@ jobs:
         run: npm test
       - name: Build package
         run: npm run build
-      - name: Verify tag matches package version
+      - name: Verify release commit message
+        env:
+          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
         run: |
           PACKAGE_VERSION=$(node -p "require('./package.json').version")
-          if [ "${GITHUB_REF_NAME}" != "v${PACKAGE_VERSION}" ]; then
-            echo "Tag ${GITHUB_REF_NAME} does not match package version v${PACKAGE_VERSION}"
+          EXPECTED_MESSAGE="Release ${PACKAGE_VERSION}"
+          if [ "${COMMIT_MESSAGE}" != "${EXPECTED_MESSAGE}" ]; then
+            echo "Commit message '${COMMIT_MESSAGE}' does not match '${EXPECTED_MESSAGE}'"
             exit 1
           fi
+          echo "PACKAGE_VERSION=${PACKAGE_VERSION}" >> "$GITHUB_ENV"
+      - name: Create release tag
+        run: |
+          TAG_NAME="v${PACKAGE_VERSION}"
+          if git rev-parse "${TAG_NAME}" >/dev/null 2>&1; then
+            echo "Tag ${TAG_NAME} already exists locally"
+            exit 1
+          fi
+          if git ls-remote --exit-code --tags origin "${TAG_NAME}" >/dev/null 2>&1; then
+            echo "Tag ${TAG_NAME} already exists on origin"
+            exit 1
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag "${TAG_NAME}" -m "Release ${PACKAGE_VERSION}"
+          git push origin "${TAG_NAME}"
       - name: Publish package to npm
         run: npm publish --provenance
         env:
