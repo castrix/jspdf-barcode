@@ -10,7 +10,7 @@
     "types": "./index.d.ts"
   },
   "scripts": {
-    "build": "set NODE_OPTIONS=--openssl-legacy-provider && webpack --mode production",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider && webpack --mode production",
     "build-example": "npm run build --workspace=example && npm run build --workspace=example-server-side",
     "example": "npm run dev --workspace=example",
     "example-server-side": "npm run dev --workspace=example-server-side"
