@@ -8,6 +8,9 @@ export const encodeCode128 = (text: string, variant: VARIANT = 'AUTO') => {
   const START_C_VALUE = 105;
   const STOP_VALUE = 106;
 
+    const toFontChar = (value: number) =>
+            String.fromCharCode(value + (value < 95 ? ASCII_OFFSET : FONT_OFFSET));
+
   let startValue: number;
   let barcodeValues: number[];
   let effectiveVariant: VARIANT;
@@ -25,7 +28,7 @@ export const encodeCode128 = (text: string, variant: VARIANT = 'AUTO') => {
   }
 
   if (effectiveVariant === 'C') {
-      if (!/^\d{2}$/.test(text) && text.length % 2 !== 0) {
+      if (!/^\d+$/.test(text) || text.length % 2 !== 0) {
           throw new Error("Code 128C requires an even-length string of digits");
       }
       startValue = START_C_VALUE;
@@ -45,7 +48,11 @@ export const encodeCode128 = (text: string, variant: VARIANT = 'AUTO') => {
           if (effectiveVariant === 'B' && ascii < 32) {
               throw new Error("Code 128B only supports ASCII 32-127");
           }
-          barcodeValues.push(effectiveVariant === 'A' ? ascii : ascii - ASCII_OFFSET);
+          barcodeValues.push(
+              effectiveVariant === 'A'
+                  ? (ascii < ASCII_OFFSET ? ascii + 64 : ascii - ASCII_OFFSET)
+                  : ascii - ASCII_OFFSET
+          );
       }
   }
 
@@ -56,18 +63,10 @@ export const encodeCode128 = (text: string, variant: VARIANT = 'AUTO') => {
   const checksum = sum % CHECKSUM_MODULO;
 
   let barcodeString = String.fromCharCode(startValue + FONT_OFFSET);
-  if (effectiveVariant === 'C') {
-      for (let i = 0; i < text.length; i += 2) {
-          const pair = parseInt(text.slice(i, i + 2), 10);
-
-          const offset = pair < 95 ? ASCII_OFFSET : FONT_OFFSET;
-
-          barcodeString += String.fromCharCode(pair + offset);
-      }
-  } else {
-      barcodeString += text;
+  for (let i = 1; i < barcodeValues.length; i++) {
+      barcodeString += toFontChar(barcodeValues[i]);
   }
-  barcodeString += String.fromCharCode(checksum + ASCII_OFFSET);
+  barcodeString += toFontChar(checksum);
   barcodeString += String.fromCharCode(STOP_VALUE + FONT_OFFSET);
 
   return barcodeString;

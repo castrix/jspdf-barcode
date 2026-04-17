@@ -1,6 +1,6 @@
 {
   "name": "jspdf-barcode",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "barcode generator plugin for jspdf",
   "main": "dist/jspdf-barcode.js",
   "types": "index.d.ts",
@@ -10,7 +10,8 @@
     "types": "./index.d.ts"
   },
   "scripts": {
-    "build": "NODE_OPTIONS=--openssl-legacy-provider && webpack --mode production",
+    "build": "set NODE_OPTIONS=--openssl-legacy-provider && webpack --mode production",
+    "test": "vitest run",
     "build-example": "npm run build --workspace=example && npm run build --workspace=example-server-side",
     "example": "npm run dev --workspace=example",
     "example-server-side": "npm run dev --workspace=example-server-side"
@@ -39,9 +40,11 @@
     "@typescript-eslint/eslint-plugin": "^3.6.1",
     "@typescript-eslint/parser": "^3.6.1",
     "babel-loader": "^8.2.2",
+    "code-128-encoder": "^3.1.1",
     "jspdf": "^2.0.0",
     "ts-loader": "^8.0.0",
     "typescript": "^3.9.6",
+    "vitest": "^0.34.6",
     "webpack": "^5.51.1",
     "webpack-cli": "^4.8.0"
   },
