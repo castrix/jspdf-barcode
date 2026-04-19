@@ -48,6 +48,30 @@ jspdfBarcode(doc, "barcodeValue", {
     textOptions: { align: "center" } // optional text options
   })
 ```
+### CDN 
+```
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf-barcode@1.0.10/dist/index.umd.js"</script>
+<script>
+    // expose global jsPDF for legacy code
+    window.jsPDF = window.jspdf.jsPDF;
+</script>
+<script>
+    // expose global default for legacy code
+    window.jspdfBarcode = window.default;
+</script>
+
+//make pdf
+const doc = new jsPDF();
+//make & place the barcode:
+jspdfBarcode(doc, "barcodeValue", {
+    fontSize: 23,
+    textColor: "#000000",
+    x: 5.4,
+    y: 25.5,
+    textOptions: { align: "center" } // optional text options
+});
+```
 
 ## Support
 By default, it will use `AUTO` variant (will choose between `Code 128B` or `Code 128C`) if `options.variant` is not provided.
